@@ -1,0 +1,197 @@
+{
+	"info": {
+		"name": "rest-project-tests",
+		"_postman_id": "70d61309-bee3-ccd0-0a08-e387016a957c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-user-stored-in-db",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:9070/user/test@test.com",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"user",
+						"test@test.com"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-not-stored-in-db",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:9070/user/test@test.com1",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"user",
+						"test@test.com1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create-user[current-response-mocked]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"hola\",\n\t\"email\":\"test@test.com1\",\n\t\"password\":\"Ha21\",\n\t\"phones\":[\n            {\n                \"number\": \"1234567\",\n                \"citycode\": \"1\",\t\t\t\n                \"contrycode\": \"57\"\n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "localhost:9070/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"user",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create-user-email-empty",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"hola\",\n\t\"password\":\"Ha21\",\n\t\"phones\":[\n            {\n                \"number\": \"1234567\",\n                \"citycode\": \"1\",\t\t\t\n                \"contrycode\": \"57\"\n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "localhost:9070/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"user",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create-user-email-invalid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"hola\",\n\t\"email\":\"@gmail.com\",\n\t\"password\":\"Ha21\",\n\t\"phones\":[\n            {\n                \"number\": \"1234567\",\n                \"citycode\": \"1\",\t\t\t\n                \"contrycode\": \"57\"\n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "localhost:9070/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"user",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create-user-email-already-registered",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"hola\",\n\t\"email\":\"test@test.com\",\n\t\"password\":\"Ha21\",\n\t\"phones\":[\n            {\n                \"number\": \"1234567\",\n                \"citycode\": \"1\",\t\t\t\n                \"contrycode\": \"57\"\n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "localhost:9070/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"user",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create-user-password-invalid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"hola\",\n\t\"email\":\"other@test.com\",\n\t\"password\":\"Az1\",\n\t\"phones\":[\n            {\n                \"number\": \"1234567\",\n                \"citycode\": \"1\",\t\t\t\n                \"contrycode\": \"57\"\n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "localhost:9070/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"user",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
